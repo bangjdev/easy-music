@@ -18,7 +18,7 @@ public class Captain {
     }
 
     public void loadSongsFromStorage() {
-        mainActivity.getSongsManager().clear();
+        SongsManager.getInstance().clear();
 
         String[] projection = {
                 MediaStore.Audio.Media.TITLE,
@@ -31,7 +31,7 @@ public class Captain {
         Cursor songsCursor = mainActivity.getContentResolver().query(MediaStore.Audio.Media.EXTERNAL_CONTENT_URI, projection, selection, null, MediaStore.Audio.Media.DEFAULT_SORT_ORDER);
         while (songsCursor.moveToNext()) {
             Song newSong = new Song(songsCursor.getString(0), songsCursor.getString(1), songsCursor.getString(2));
-            mainActivity.getSongsManager().addSong(newSong);
+            SongsManager.getInstance().addSong(newSong);
         }
     }
 }

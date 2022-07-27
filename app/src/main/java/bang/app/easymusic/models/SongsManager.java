@@ -5,10 +5,18 @@ import java.util.List;
 import java.util.Observable;
 
 public class SongsManager extends Observable {
+    private static SongsManager instance;
     private final List<Song> songsList;
 
-    public SongsManager(){
+    private SongsManager() {
         songsList = new ArrayList<>();
+    }
+
+    public static SongsManager getInstance() {
+        if (instance == null) {
+            instance = new SongsManager();
+        }
+        return instance;
     }
 
     public Song getSongByIndex(int id) throws IndexOutOfBoundsException {

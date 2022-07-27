@@ -20,7 +20,6 @@ import bang.app.easymusic.models.SongsManager;
 public class MainActivity extends AppCompatActivity {
     private static final String LOG_TAG = "MainActivity";
 
-    private SongsManager songsManager;
     private Captain captain;
 
     private RecyclerView songsListView;
@@ -33,7 +32,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         // Data
-        songsManager = new SongsManager();
         captain = new Captain(this);
 
         // UI
@@ -54,9 +52,9 @@ public class MainActivity extends AppCompatActivity {
 
     private void reloadSongs() {
         captain.loadSongsFromStorage();
-        if (songsManager.getAllSongs().size() != 0) {
+        if (SongsManager.getInstance().getAllSongs().size() != 0) {
             songsListView.setLayoutManager(new LinearLayoutManager(this));
-            songsListView.setAdapter(new SongsListAdapter(songsManager.getAllSongs()));
+            songsListView.setAdapter(new SongsListAdapter(SongsManager.getInstance().getAllSongs()));
         }
         swipeRefreshLayout.setRefreshing(false);
     }
@@ -73,10 +71,6 @@ public class MainActivity extends AppCompatActivity {
                     Manifest.permission.READ_EXTERNAL_STORAGE
             }, 6969);
         }
-    }
-
-    public SongsManager getSongsManager() {
-        return songsManager;
     }
 
 }

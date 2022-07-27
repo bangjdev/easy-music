@@ -1,5 +1,6 @@
 package bang.app.easymusic.views;
 
+import android.graphics.Color;
 import android.media.MediaPlayer;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -33,16 +34,16 @@ public class SongsListAdapter extends RecyclerView.Adapter<SongsListAdapter.Song
     @Override
     public void onBindViewHolder(@NonNull SongItemViewHolder holder, int position) {
         holder.getTvSongTitle().setText(songsList.get(position).getTitle());
+        if (EasyMediaPlayer.currentIndex == position) {
+            holder.itemView.setBackgroundColor(Color.RED);
+            holder.getTvSongTitle().setTextColor(Color.WHITE);
+        } else {
+            holder.itemView.setBackgroundColor(Color.WHITE);
+            holder.getTvSongTitle().setTextColor(Color.BLACK);
+        }
         holder.itemView.setOnClickListener(view -> {
-            MediaPlayer player = EasyMediaPlayer.getInstance();
-            player.reset();
-            try {
-                player.setDataSource(songsList.get(position).getPath());
-                player.prepare();
-                player.start();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            EasyMediaPlayer.play(position);
+            notifyDataSetChanged();
         });
     }
 
