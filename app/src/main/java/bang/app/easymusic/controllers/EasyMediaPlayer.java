@@ -8,12 +8,14 @@ import bang.app.easymusic.models.SongsManager;
 
 public class EasyMediaPlayer {
     private static MediaPlayer instance;
+
     public static MediaPlayer getInstance() {
         if (instance == null) {
             instance = new MediaPlayer();
         }
         return instance;
     }
+
     public static int currentIndex = -1;
 
     public static void play(int id) {
@@ -31,7 +33,7 @@ public class EasyMediaPlayer {
     }
 
     public static void playNext(MediaPlayer mediaPlayer) {
-        currentIndex ++;
+        currentIndex++;
         if (currentIndex >= SongsManager.getInstance().getAllSongs().size()) {
             currentIndex = 0;
         }

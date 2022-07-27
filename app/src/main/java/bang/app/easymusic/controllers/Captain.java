@@ -2,7 +2,6 @@ package bang.app.easymusic.controllers;
 
 import android.database.Cursor;
 import android.provider.MediaStore;
-import android.util.Log;
 
 import bang.app.easymusic.models.Song;
 import bang.app.easymusic.models.SongsManager;

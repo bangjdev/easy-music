@@ -1,11 +1,5 @@
 package bang.app.easymusic.models;
 
-import android.media.MediaPlayer;
-
-import java.io.IOException;
-
-import bang.app.easymusic.controllers.EasyMediaPlayer;
-
 public class Song {
     private String title, artist, path;
 
