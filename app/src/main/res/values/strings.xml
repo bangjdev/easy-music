@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">Máy Nghe Nhạc</string>
     <string name="label_exit">Tắt</string>
-    <string name="label_songs_list">Danh Sách Bài Hát</string>
+    <string name="label_songs_count_prefix">Tìm Thấy</string>
+    <string name="label_songs_count_postfix">Bài Hát</string>
+    <string name="alert_need_permissions">Cần quyền đọc dữ liệu!</string>
 </resources>

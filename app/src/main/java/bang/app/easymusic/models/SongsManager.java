@@ -36,4 +36,8 @@ public class SongsManager extends Observable {
     public List<Song> getAllSongs() {
         return songsList;
     }
+
+    public int getSongsCount() {
+        return this.songsList.size();
+    }
 }
